@@ -13,6 +13,8 @@ void f(char *str, int len) {
 	if (!str)
 		return;
 
+	// i is for counting, so it is better
+	// to start from 1, and count up to len - 1, inclusive
 	for (i = 0; i < len - 1; i++)
 		for (j = 0; j < len - 1 - i; j++)
 			if (str[j] > str[j + 1]) {
@@ -24,7 +26,7 @@ void f(char *str, int len) {
 
 // quick sort
 void f_quick(char *str, int len) {
-	int piv;
+	int piv, i, temp;
 
 	if ((!str) || (len <= 0))
 		return;
