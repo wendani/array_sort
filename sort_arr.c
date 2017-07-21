@@ -5,9 +5,8 @@
 // sort the characters in a string
 // in ascending order
 
-// Bubble sort
+// bubble sort
 void f(char *str, int len) {
-
 	int i, j;
 	char temp;
 
@@ -23,13 +22,38 @@ void f(char *str, int len) {
 			}
 }
 
+// quick sort
+void f_quick(char *str, int len) {
+	int piv;
+
+	if ((!str) || (len <= 0))
+		return;
+
+	if (len == 1)
+		return;
+
+	// reach here, we have len >= 2
+	piv = len - 1;
+	for (i = piv - 1; i >= 0; i--)
+		if (str[i] > str[piv]) {
+			temp = str[i];
+			str[i] = str[piv - 1];
+			str[piv - 1] = str[piv];
+			str[piv] = temp;
+		}
+
+	f_quick(str, piv);
+	f_quick(str + piv + 1, len - piv - 1);
+}
+
 int main(int argc, char *argv[])
 {
 	char s[20] = "hello, world!";
 	
 	printf("s: %s\n", s);
 
-	f(s, strlen(s));
+//	f(s, strlen(s));
+	f_quick(s, strlen(s));
 	printf("s: %s\n", s);
 
 	return 0;
