@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 // sort the characters in a string
 // in ascending order
@@ -7,7 +8,8 @@
 // Bubble sort
 void f(char *str, int len) {
 
-	int i;
+	int i, j;
+	char temp;
 
 	if (!str)
 		return;
@@ -27,7 +29,7 @@ int main(int argc, char *argv[])
 	
 	printf("s: %s\n", s);
 
-	f(s, sizeof(s));
+	f(s, strlen(s));
 	printf("s: %s\n", s);
 
 	return 0;
