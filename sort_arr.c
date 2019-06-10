@@ -39,9 +39,9 @@ void f_quick(char *str, int len) {
 	piv = len - 1;
 	temp = str[piv];
 	for (i = piv - 1; i >= 0; i--)
-		if (str[i] > str[piv]) {
-			str[i] = str[piv - 1];
+		if (str[i] > temp) {
 			str[piv] = str[i];
+			str[i] = str[piv - 1];
 			piv--;
 		}
 	str[piv] = temp;
