@@ -42,6 +42,7 @@ void f_quick(char *str, int len) {
 			str[i] = str[piv - 1];
 			str[piv - 1] = str[piv];
 			str[piv] = temp;
+			piv--;
 		}
 
 	f_quick(str, piv);
