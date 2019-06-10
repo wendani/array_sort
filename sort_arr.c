@@ -26,7 +26,8 @@ void f(char *str, int len) {
 
 // quick sort
 void f_quick(char *str, int len) {
-	int piv, i, temp;
+	int piv, i;
+	char temp;
 
 	if ((!str) || (len <= 0))
 		return;
@@ -36,14 +37,14 @@ void f_quick(char *str, int len) {
 
 	// reach here, we have len >= 2
 	piv = len - 1;
+	temp = str[piv];
 	for (i = piv - 1; i >= 0; i--)
 		if (str[i] > str[piv]) {
-			temp = str[i];
 			str[i] = str[piv - 1];
-			str[piv - 1] = str[piv];
-			str[piv] = temp;
+			str[piv] = str[i];
 			piv--;
 		}
+	str[piv] = temp;
 
 	f_quick(str, piv);
 	f_quick(str + piv + 1, len - piv - 1);
